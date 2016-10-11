@@ -12,6 +12,7 @@
 #include <vector>
 #include <SFML/Graphics.hpp>
 
+// we need to tell the compiler that it's ok to use the default defines from math.h, if we don't, we don't get access to M_PI!
 #define _USE_MATH_DEFINES
 
 #include <math.h>

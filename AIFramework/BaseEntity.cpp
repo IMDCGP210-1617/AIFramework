@@ -30,7 +30,9 @@ BaseEntity::~BaseEntity()
 
 void BaseEntity::Think()
 {
+	// build a new position vector by adding a scaled version of the velocity vector
 	sf::Vector2f pos = getPosition() + (velocity * 0.1f);
+	// update our position
 	setPosition(pos);
 }
 
@@ -48,8 +50,11 @@ void BaseEntity::Initialize()
 	// set up our colour tint
 	sprite.setColor(colourTint);
 	
+	// select a random angle
 	float angle = UtilRandom::instance()->GetRange(0, 361);
+	// set our rotation value
 	setRotation(angle);
+	// and assign a velocity, we need to convert angle to radians so it plays nicely with cos and sin.
 	velocity = sf::Vector2f(cos(angle * M_PI / 180), sin(angle * M_PI / 180));
 
 	// add the entity to the list of renderables.
